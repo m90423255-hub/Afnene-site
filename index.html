@@ -1,0 +1,1122 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Afnene | Salés & Douceurs</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: #fff;
+            line-height: 1.6;
+        }
+
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            background-image: url('cookies.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.65);
+        }
+
+        .content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            padding: 40px 20px;
+        }
+
+        .logo-img {
+            max-width: 320px;
+            width: 90%;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease;
+        }
+        .logo-img:hover {
+            transform: scale(1.02);
+        }
+
+        .snack {
+            font-size: 1rem;
+            font-weight: 500;
+            color: #003B22;
+            letter-spacing: 3px;
+            margin-bottom: 40px;
+        }
+
+        .main-title {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .main-title span {
+            color: #003B22;
+            display: inline-block;
+        }
+
+        .description {
+            font-size: 1rem;
+            color: #ddd;
+            max-width: 550px;
+            margin: 0 auto 30px;
+        }
+
+        .btn-menu {
+            display: inline-block;
+            background: #003B22;
+            color: #fff;
+            padding: 14px 45px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .btn-menu:hover {
+            background: #002c19;
+            transform: translateY(-3px);
+        }
+
+        .art-section {
+            background: #1e1e1e;
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .art-title {
+            font-size: 2rem;
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 20px;
+            color: #003B22;
+        }
+
+        .art-text {
+            font-size: 1rem;
+            color: #ccc;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        .features-section {
+            background: #2a2a2a;
+            padding: 80px 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 1.8rem;
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 15px;
+        }
+
+        .section-sub {
+            text-align: center;
+            color: #003B22;
+            margin-bottom: 50px;
+            font-size: 1rem;
+        }
+
+        .features-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 30px 25px;
+            text-align: center;
+            width: 280px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0, 59, 34, 0.3);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            border-color: #003B22;
+            background: rgba(0, 59, 34, 0.1);
+        }
+
+        .feature-icon {
+            font-size: 2.2rem;
+            color: #003B22;
+            margin-bottom: 20px;
+        }
+
+        .feature-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 12px;
+        }
+
+        .feature-card p {
+            font-size: 0.85rem;
+            color: #bbb;
+        }
+
+        .footer {
+            background: #0f0f0f;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .footer p {
+            color: #888;
+            font-size: 0.85rem;
+        }
+
+        .social-links {
+            margin-top: 18px;
+        }
+
+        .social-links a {
+            color: #003B22;
+            font-size: 1.2rem;
+            margin: 0 12px;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: #fff;
+        }
+
+        .scroll-top {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background: #003B22;
+            color: #fff;
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            z-index: 100;
+        }
+
+        .scroll-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* ===== MODAL MENU ===== */
+        .menu-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.92);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            backdrop-filter: blur(8px);
+        }
+
+        .menu-modal-content {
+            background: #1e1e1e;
+            border-radius: 35px;
+            max-width: 900px;
+            width: 92%;
+            max-height: 85vh;
+            overflow-y: auto;
+            padding: 30px;
+            position: relative;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+            border: 1px solid #003B22;
+        }
+
+        .menu-modal-content h2 {
+            text-align: center;
+            color: #003B22;
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 10px;
+            font-size: 2.2rem;
+        }
+
+        .menu-subtitle {
+            text-align: center;
+            color: #e8c39e;
+            margin-bottom: 30px;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            font-size: 32px;
+            cursor: pointer;
+            color: #fff;
+            transition: 0.2s;
+            background: rgba(0,0,0,0.5);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .close-modal:hover {
+            color: #e8c39e;
+            transform: rotate(90deg);
+        }
+
+        /* تقسيم القائمة بين حلويات ومملحات */
+        .menu-category-section {
+            margin-bottom: 40px;
+        }
+        .category-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #003B22;
+        }
+        .category-header i {
+            font-size: 1.8rem;
+            color: #e8c39e;
+        }
+        .category-header h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #e8c39e;
+        }
+        .category-header .count {
+            background: #003B22;
+            padding: 2px 10px;
+            border-radius: 30px;
+            font-size: 0.7rem;
+            font-weight: 500;
+        }
+
+        /* Grille des produits */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 20px;
+        }
+
+        .product-card {
+            background: #2a2a2a;
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            text-align: center;
+            border: 1px solid #444;
+        }
+        .product-card:hover {
+            transform: translateY(-6px);
+            border-color: #e8c39e;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+        }
+        .product-img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            background: #3a3a3a;
+            transition: transform 0.3s;
+        }
+        .product-card:hover .product-img {
+            transform: scale(1.02);
+        }
+        .product-info {
+            padding: 15px;
+        }
+        .product-info h4 {
+            font-size: 1.05rem;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+        .product-price {
+            color: #e8c39e;
+            font-weight: bold;
+            font-size: 1rem;
+            margin: 8px 0;
+        }
+        .order-product-btn {
+            background: #003B22;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 40px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.8rem;
+            transition: 0.2s;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        .order-product-btn:hover {
+            background: #e8c39e;
+            color: #1e1e1e;
+        }
+
+        /* Section livraison */
+        .delivery-section {
+            margin: 25px 0 20px;
+            padding: 18px;
+            background: #2a2a2a;
+            border-radius: 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        .delivery-options {
+            display: flex;
+            gap: 25px;
+        }
+        .delivery-options label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            padding: 8px 15px;
+            border-radius: 40px;
+            transition: 0.2s;
+        }
+        .delivery-options label:hover {
+            background: rgba(0,59,34,0.3);
+        }
+        .cart-summary {
+            background: #2a2a2a;
+            border-radius: 25px;
+            padding: 18px;
+            margin-top: 20px;
+        }
+        .cart-summary h4 {
+            color: #e8c39e;
+            margin-bottom: 12px;
+            font-size: 1.1rem;
+        }
+        .cart-items {
+            max-height: 150px;
+            overflow-y: auto;
+            margin-bottom: 12px;
+        }
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.85rem;
+            padding: 8px 0;
+            border-bottom: 1px solid #444;
+        }
+        .cart-total {
+            font-weight: bold;
+            text-align: right;
+            margin-top: 12px;
+            border-top: 1px solid #003B22;
+            padding-top: 12px;
+            font-size: 1.1rem;
+        }
+        .confirm-order-btn {
+            background: #e8c39e;
+            color: #1e1e1e;
+            border: none;
+            padding: 14px;
+            border-radius: 50px;
+            width: 100%;
+            font-weight: bold;
+            font-size: 1rem;
+            cursor: pointer;
+            margin-top: 15px;
+            transition: 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        .confirm-order-btn:hover {
+            background: #c49a6c;
+            color: white;
+        }
+
+        /* ===== MODAL CLIENT INFO ===== */
+        .client-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.95);
+            z-index: 1100;
+            justify-content: center;
+            align-items: center;
+            backdrop-filter: blur(8px);
+        }
+
+        .client-modal-content {
+            background: #1e1e1e;
+            border-radius: 35px;
+            max-width: 450px;
+            width: 90%;
+            padding: 30px;
+            position: relative;
+            border: 1px solid #003B22;
+        }
+
+        .client-modal-content h3 {
+            color: #e8c39e;
+            text-align: center;
+            margin-bottom: 25px;
+            font-size: 1.5rem;
+        }
+
+        .client-modal-content .close-client {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 28px;
+            cursor: pointer;
+            color: #fff;
+        }
+
+        .client-modal-content .close-client:hover {
+            color: #e8c39e;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #ccc;
+            font-size: 0.9rem;
+        }
+
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border-radius: 25px;
+            border: 1px solid #444;
+            background: #2a2a2a;
+            color: #fff;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.9rem;
+            outline: none;
+        }
+
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+            border-color: #e8c39e;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+
+        .address-field {
+            display: none;
+        }
+
+        .address-field.show {
+            display: block;
+        }
+
+        .submit-order-btn {
+            background: #e8c39e;
+            color: #1e1e1e;
+            border: none;
+            padding: 14px;
+            border-radius: 50px;
+            width: 100%;
+            font-weight: bold;
+            font-size: 1rem;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: 0.2s;
+        }
+
+        .submit-order-btn:hover {
+            background: #c49a6c;
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .logo-img {
+                max-width: 240px;
+            }
+            .main-title {
+                font-size: 1.8rem;
+            }
+            .art-title {
+                font-size: 1.5rem;
+            }
+            .products-grid {
+                grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+                gap: 15px;
+            }
+            .product-img {
+                height: 130px;
+            }
+            .category-header h3 {
+                font-size: 1.2rem;
+            }
+            .delivery-section {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .delivery-options {
+                flex-wrap: wrap;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="hero" id="home">
+        <div class="overlay"></div>
+        <div class="content">
+            <img class="logo-img" src="logo.png" alt="Afnene Logo" onerror="this.src='https://placehold.co/320x130/003B22/white?text=Afnene'">
+            <div class="snack">salés & douceurs</div>
+            <h1 class="main-title">
+                Prenez une gorgée,<br>
+                <span>survivez</span><br>
+                à la semaine de travail
+            </h1>
+            <p class="description">
+                Découvrez l'art de prendre une pause. Salés, douceurs orientales et bien plus.
+            </p>
+            <button class="btn-menu" id="openMenuBtn">Consultez notre menu</button>
+        </div>
+    </div>
+
+    <div class="art-section">
+        <h2 class="art-title">L'art de vivre à l'afnene</h2>
+        <p class="art-text">
+            Salés, douceurs orientales et café d'exception. Ici, chaque pause devient un plaisir.
+        </p>
+    </div>
+
+    <div class="features-section">
+        <h2 class="section-title">We're not your average coffee house.</h2>
+        <p class="section-sub">See what makes us different.</p>
+        
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-utensils"></i></div>
+                <h3>Salés & Sandwiches</h3>
+                <p>Bourek, bricks, sandwiches, pizzas... Nos spécialités salées</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-cake"></i></div>
+                <h3>Douceurs Orientales</h3>
+                <p>Baklava, knafeh, qatayef, makrout... Un voyage sucré</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-mug-hot"></i></div>
+                <h3>Pâtisseries & Café</h3>
+                <p>Viennoiseries, cafés turcs pour accompagner vos douceurs</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>© 2024 Afnene — Salés & Douceurs Orientales</p>
+        <div class="social-links">
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-whatsapp"></i></a>
+        </div>
+    </div>
+
+    <div class="scroll-top" id="scrollTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <!-- Modal Menu -->
+    <div id="menuModal" class="menu-modal">
+        <div class="menu-modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Notre Menu</h2>
+            <div class="menu-subtitle">Découvrez nos délicieuses créations</div>
+
+            <div class="menu-category-section">
+                <div class="category-header">
+                    <i class="fas fa-cake"></i>
+                    <h3>🍰 Douceurs Orientales</h3>
+                    <span class="count" id="douceursCount">0</span>
+                </div>
+                <div class="products-grid" id="douceursGrid"></div>
+            </div>
+
+            <div class="menu-category-section">
+                <div class="category-header">
+                    <i class="fas fa-utensils"></i>
+                    <h3>🥙 Salés & Sandwiches</h3>
+                    <span class="count" id="salesCount">0</span>
+                </div>
+                <div class="products-grid" id="salesGrid"></div>
+            </div>
+
+            <div class="delivery-section">
+                <div class="delivery-options">
+                    <label>
+                        <input type="radio" name="delivery" value="livraison" checked> 🚚 Livraison à domicile
+                    </label>
+                    <label>
+                        <input type="radio" name="delivery" value="emporter"> 🛍️ À emporter
+                    </label>
+                </div>
+                <div>
+                    <i class="fas fa-truck" style="color:#e8c39e;"></i> Frais de livraison: <span id="deliveryFee">200 DA</span>
+                </div>
+            </div>
+
+            <div class="cart-summary">
+                <h4>🛒 Votre commande</h4>
+                <div id="cartItems" class="cart-items">
+                    <div style="text-align:center; color:#888;">Aucun article sélectionné</div>
+                </div>
+                <div class="cart-total">
+                    Total: <span id="cartTotal">0</span> DA
+                </div>
+                <button id="confirmOrderBtn" class="confirm-order-btn">
+                    <i class="fas fa-check-circle"></i> Passer commande
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal معلومات العميل -->
+    <div id="clientModal" class="client-modal">
+        <div class="client-modal-content">
+            <span class="close-client">&times;</span>
+            <h3>📋 Vos coordonnées</h3>
+            <form id="clientForm">
+                <div class="form-group">
+                    <label>Nom complet</label>
+                    <input type="text" id="fullName" placeholder="Votre nom et prénom" required>
+                </div>
+                <div class="form-group">
+                    <label>Téléphone</label>
+                    <input type="tel" id="phone" placeholder="06 00 00 00 00" required>
+                </div>
+                <div class="form-group">
+                    <label>Mode de livraison</label>
+                    <select id="deliveryType">
+                        <option value="emporter">🛍️ À emporter</option>
+                        <option value="livraison">🚚 Livraison à domicile</option>
+                    </select>
+                </div>
+                <div class="form-group address-field" id="addressField">
+                    <label>Adresse de livraison</label>
+                    <textarea id="address" placeholder="Ville, rue, numéro, code postal..."></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Instructions spéciales (optionnel)</label>
+                    <textarea id="notes" placeholder="Ajoutez une note pour votre commande..."></textarea>
+                </div>
+                <button type="submit" class="submit-order-btn">✅ Confirmer la commande</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // ========== قائمة المنتجات ==========
+        const products = [
+            { id: 1, name: "Gâteau Red Velvet à la fraise", price: 0, category: "douceur", image: "111.png" },
+            { id: 2, name: "Cookies à la noisette", price: 0, category: "douceur", image: "222.png" },
+            { id: 3, name: "Chocolate lovers", price: 0, category: "douceur", image: "333.png" },
+            { id: 4, name: "Profiterole crème glacée chocolat intense noisettes", price: 0, category: "douceur", image: "444.png" },
+            { id: 5, name: "Carotte cake", price: 0, category: "douceur", image: "555.png" },
+            { id: 6, name: "Tarte au fraise", price: 0, category: "douceur", image: "666.png" },
+            { id: 7, name: "Profiterole Vanille, concassé d'amandes", price: 0, category: "douceur", image: "777.png" },
+            { id: 8, name: "Galette au chocolat", price: 0, category: "douceur", image: "888.png" },
+            { id: 9, name: "Galette des rois", price: 0, category: "douceur", image: "999.png" },
+            { id: 10, name: "Sandwich façon blanquette de veau", price: 0, category: "sale", image: "aaa.png" },
+            { id: 11, name: "Burger fresh", price: 0, category: "sale", image: "bbb.png" },
+            { id: 12, name: "Burger maison", price: 0, category: "sale", image: "ccc.png" },
+            { id: 13, name: "Bastilla", price: 0, category: "sale", image: "ddd.png" }
+        ];
+
+        let cart = [];
+
+        function createProductCard(product) {
+            const card = document.createElement('div');
+            card.className = 'product-card';
+            card.innerHTML = `
+                <img class="product-img" src="${product.image}" alt="${product.name}" onerror="this.src='https://placehold.co/300x160/333/e8c39e?text=${encodeURIComponent(product.name.substring(0,20))}'">
+                <div class="product-info">
+                    <h4>${product.name}</h4>
+                    <div class="product-price">${product.price === 0 ? 'Prix à définir' : product.price + ' DA'}</div>
+                    <button class="order-product-btn" data-id="${product.id}">
+                        <i class="fas fa-shopping-cart"></i> Commander
+                    </button>
+                </div>
+            `;
+            return card;
+        }
+
+        function renderProducts() {
+            const douceurs = products.filter(p => p.category === "douceur");
+            const sales = products.filter(p => p.category === "sale");
+            
+            const douceursGrid = document.getElementById('douceursGrid');
+            const salesGrid = document.getElementById('salesGrid');
+            const douceursCount = document.getElementById('douceursCount');
+            const salesCount = document.getElementById('salesCount');
+            
+            if (douceursGrid) {
+                douceursGrid.innerHTML = '';
+                douceurs.forEach(product => {
+                    douceursGrid.appendChild(createProductCard(product));
+                });
+                if (douceursCount) douceursCount.innerText = douceurs.length;
+            }
+            
+            if (salesGrid) {
+                salesGrid.innerHTML = '';
+                sales.forEach(product => {
+                    salesGrid.appendChild(createProductCard(product));
+                });
+                if (salesCount) salesCount.innerText = sales.length;
+            }
+            
+            document.querySelectorAll('.order-product-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const id = parseInt(btn.getAttribute('data-id'));
+                    addToCart(id);
+                });
+            });
+        }
+
+        function addToCart(productId) {
+            const product = products.find(p => p.id === productId);
+            if (!product) return;
+
+            const existing = cart.find(item => item.id === productId);
+            if (existing) {
+                existing.quantity += 1;
+            } else {
+                cart.push({ ...product, quantity: 1 });
+            }
+            updateCartDisplay();
+            showToast(`${product.name} ajouté au panier 🛒`);
+        }
+
+        function updateCartDisplay() {
+            const cartContainer = document.getElementById('cartItems');
+            const totalSpan = document.getElementById('cartTotal');
+            if (!cartContainer) return;
+
+            if (cart.length === 0) {
+                cartContainer.innerHTML = '<div style="text-align:center; color:#888;">Aucun article sélectionné</div>';
+                totalSpan.innerText = '0';
+                return;
+            }
+
+            let html = '';
+            let total = 0;
+            cart.forEach(item => {
+                const itemTotal = item.price * item.quantity;
+                total += itemTotal;
+                html += `
+                    <div class="cart-item">
+                        <span>${item.name} x ${item.quantity}</span>
+                        <span>${item.price === 0 ? 'Prix à définir' : itemTotal + ' DA'}</span>
+                    </div>
+                `;
+            });
+            cartContainer.innerHTML = html;
+
+            const deliveryMethod = document.querySelector('input[name="delivery"]:checked').value;
+            const deliveryFee = deliveryMethod === 'livraison' ? 200 : 0;
+            const finalTotal = total + deliveryFee;
+            totalSpan.innerText = finalTotal === 0 ? '0' : finalTotal + ' DA';
+        }
+
+        function updateDeliveryFee() {
+            const deliveryMethod = document.querySelector('input[name="delivery"]:checked').value;
+            const feeSpan = document.getElementById('deliveryFee');
+            if (feeSpan) {
+                feeSpan.innerText = deliveryMethod === 'livraison' ? '200 DA' : '0 DA';
+            }
+            updateCartDisplay();
+        }
+
+        function showToast(msg) {
+            const toast = document.createElement('div');
+            toast.textContent = msg;
+            toast.style.position = 'fixed';
+            toast.style.bottom = '20px';
+            toast.style.left = '50%';
+            toast.style.transform = 'translateX(-50%)';
+            toast.style.backgroundColor = '#003B22';
+            toast.style.color = '#fff';
+            toast.style.padding = '8px 20px';
+            toast.style.borderRadius = '30px';
+            toast.style.zIndex = '2000';
+            toast.style.fontSize = '0.8rem';
+            document.body.appendChild(toast);
+            setTimeout(() => toast.remove(), 2000);
+        }
+
+        // ========== نافذة معلومات العميل ==========
+        function showClientModal() {
+            const clientModal = document.getElementById('clientModal');
+            const deliveryType = document.getElementById('deliveryType');
+            const addressField = document.getElementById('addressField');
+
+            if (deliveryType) {
+                deliveryType.addEventListener('change', function() {
+                    if (this.value === 'livraison') {
+                        addressField.classList.add('show');
+                    } else {
+                        addressField.classList.remove('show');
+                    }
+                });
+            }
+
+            clientModal.style.display = 'flex';
+        }
+
+        function closeClientModal() {
+            const clientModal = document.getElementById('clientModal');
+            if (clientModal) {
+                clientModal.style.display = 'none';
+            }
+        }function handleClientForm(e) {
+    e.preventDefault();
+    
+    const fullName = document.getElementById('fullName').value;
+    const phone = document.getElementById('phone').value;
+    const deliveryType = document.getElementById('deliveryType').value;
+    const address = document.getElementById('address').value;
+    const notes = document.getElementById('notes').value;
+    
+    if (!fullName || !phone) {
+        alert("Veuillez remplir votre nom et numéro de téléphone.");
+        return;
+    }
+    
+    if (deliveryType === 'livraison' && !address) {
+        alert("Veuillez entrer votre adresse de livraison.");
+        return;
+    }
+    
+    let total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+    const deliveryFee = deliveryType === 'livraison' ? 200 : 0;
+    total += deliveryFee;
+    
+    // ========== إنشاء رسالة واتساب ==========
+    let whatsappMessage = "🆕 *NOUVELLE COMMANDE* 🆕\n\n";
+    whatsappMessage += "👤 *Client:* " + fullName + "\n";
+    whatsappMessage += "📞 *Téléphone:* " + phone + "\n";
+    whatsappMessage += "🚚 *Mode:* " + (deliveryType === 'livraison' ? 'Livraison à domicile' : 'À emporter') + "\n";
+    if (deliveryType === 'livraison') whatsappMessage += "📍 *Adresse:* " + address + "\n";
+    whatsappMessage += "\n📋 *Détails de la commande:*\n";
+    
+    cart.forEach(item => {
+        const prix = item.price === 0 ? 'Prix à définir' : item.price * item.quantity + ' DA';
+        whatsappMessage += "• " + item.name + " x " + item.quantity + " = " + prix + "\n";
+    });
+    
+    whatsappMessage += "\n💰 *Total:* " + (total === 0 ? 'À confirmer' : total + ' DA') + "\n";
+    if (notes) whatsappMessage += "\n📝 *Note:* " + notes + "\n";
+    whatsappMessage += "\n⏰ " + new Date().toLocaleString() + "\n";
+    
+    // تشفير الرسالة لاستخدامها في رابط واتساب
+    const encodedMessage = encodeURIComponent(whatsappMessage);
+    
+    // 🔴 ضع رقم هاتفك هنا (بدون + أو 00)
+    const yourPhoneNumber = "213557759956"; // استبدل هذا برقم هاتفك
+    
+    // رابط واتساب
+    const whatsappUrl = `https://wa.me/${yourPhoneNumber}?text=${encodedMessage}`;
+    
+    // ========== نافذة التأكيد مع رابط واتساب ==========
+    const confirmationModal = document.createElement('div');
+    confirmationModal.style.position = 'fixed';
+    confirmationModal.style.top = '0';
+    confirmationModal.style.left = '0';
+    confirmationModal.style.width = '100%';
+    confirmationModal.style.height = '100%';
+    confirmationModal.style.backgroundColor = 'rgba(0, 0, 0, 0.95)';
+    confirmationModal.style.zIndex = '2000';
+    confirmationModal.style.display = 'flex';
+    confirmationModal.style.justifyContent = 'center';
+    confirmationModal.style.alignItems = 'center';
+    confirmationModal.style.backdropFilter = 'blur(8px)';
+    
+    confirmationModal.innerHTML = `
+        <div style="background: #1e1e1e; border-radius: 35px; max-width: 400px; width: 90%; padding: 35px; text-align: center; border: 2px solid #003B22;">
+            <div style="font-size: 4rem; margin-bottom: 15px;">✅</div>
+            <h2 style="color: #e8c39e; margin-bottom: 15px; font-size: 1.8rem;">Commande confirmée !</h2>
+            <p style="color: #fff; margin-bottom: 10px; font-size: 1rem;">
+                <strong>${fullName}</strong>, votre commande a été enregistrée.
+            </p>
+            <div style="background: #2a2a2a; border-radius: 20px; padding: 15px; margin: 20px 0; text-align: left;">
+                <p style="color: #e8c39e; margin-bottom: 10px;">📋 Récapitulatif :</p>
+                ${cart.map(item => `<p style="color: #ccc; font-size: 0.85rem; margin: 5px 0;">• ${item.name} x ${item.quantity}</p>`).join('')}
+                <hr style="border-color: #003B22; margin: 10px 0;">
+                <p style="color: #e8c39e; font-weight: bold;">💰 Total: ${total === 0 ? 'À confirmer' : total + ' DA'}</p>
+                <p style="color: #ccc; font-size: 0.8rem; margin-top: 10px;">🚚 ${deliveryType === 'livraison' ? 'Livraison à domicile' : 'À emporter'}</p>
+                ${deliveryType === 'livraison' ? `<p style="color: #ccc; font-size: 0.8rem;">📍 Adresse: ${address}</p>` : ''}
+                ${notes ? `<p style="color: #ccc; font-size: 0.8rem;">📝 Note: ${notes}</p>` : ''}
+            </div>
+            <p style="color: #aaa; font-size: 0.85rem; margin-bottom: 20px;">
+                📞 Nous vous contacterons sous peu au <strong>${phone}</strong>
+            </p>
+            <button id="openWhatsappBtn" style="background: #25D366; color: white; border: none; padding: 12px 20px; border-radius: 50px; font-weight: bold; font-size: 1rem; cursor: pointer; margin-bottom: 10px; width: 100%;">
+                📱 Confirmer sur WhatsApp
+            </button>
+            <button id="closeConfirmationBtn" style="background: #e8c39e; color: #1e1e1e; border: none; padding: 12px 20px; border-radius: 50px; font-weight: bold; font-size: 1rem; cursor: pointer; width: 100%;">
+                🏠 Retour à l'accueil
+            </button>
+        </div>
+    `;
+    
+    document.body.appendChild(confirmationModal);
+    
+    // زر فتح واتساب
+    const openWhatsappBtn = document.getElementById('openWhatsappBtn');
+    openWhatsappBtn.addEventListener('click', function() {
+        window.open(whatsappUrl, '_blank');
+    });
+    
+    // زر العودة للصفحة الرئيسية
+    const closeBtn = document.getElementById('closeConfirmationBtn');
+    closeBtn.addEventListener('click', function() {
+        confirmationModal.remove();
+    });
+    
+    // إعادة تعيين كل شيء
+    cart = [];
+    updateCartDisplay();
+    closeClientModal();
+    closeMenu();
+    
+    document.getElementById('clientForm').reset();
+    document.getElementById('addressField').classList.remove('show');
+}
+
+        
+
+        function closeMenu() {
+            const modal = document.getElementById('menuModal');
+            if (modal) {
+                modal.style.display = 'none';
+            }
+        }
+
+        function confirmOrder() {
+            if (cart.length === 0) {
+                alert("Votre panier est vide. Ajoutez des articles s'il vous plaît.");
+                return;
+            }
+            showClientModal();
+        }
+
+        // ========== تشغيل الموقع ==========
+        document.addEventListener('DOMContentLoaded', function() {
+            const openBtn = document.getElementById('openMenuBtn');
+            const closeBtn = document.querySelector('.close-modal');
+            const modal = document.getElementById('menuModal');
+            const confirmBtn = document.getElementById('confirmOrderBtn');
+            const scrollTopBtn = document.getElementById('scrollTop');
+            
+            if (openBtn) {
+                openBtn.addEventListener('click', function() {
+                    renderProducts();
+                    updateCartDisplay();
+                    modal.style.display = 'flex';
+                });
+            }
+            
+            if (closeBtn) {
+                closeBtn.addEventListener('click', closeMenu);
+            }
+            
+            if (modal) {
+                window.addEventListener('click', (e) => {
+                    if (e.target === modal) closeMenu();
+                });
+            }
+            
+            document.querySelectorAll('input[name="delivery"]').forEach(radio => {
+                radio.addEventListener('change', updateDeliveryFee);
+            });
+            
+            if (confirmBtn) {
+                confirmBtn.addEventListener('click', confirmOrder);
+            }
+            
+            if (scrollTopBtn) {
+                window.addEventListener('scroll', () => {
+                    scrollTopBtn.classList.toggle('show', window.scrollY > 300);
+                });
+                scrollTopBtn.addEventListener('click', () => {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
+            
+            const clientForm = document.getElementById('clientForm');
+            if (clientForm) {
+                clientForm.addEventListener('submit', handleClientForm);
+            }
+            
+            const closeClientBtn = document.querySelector('.close-client');
+            if (closeClientBtn) {
+                closeClientBtn.addEventListener('click', closeClientModal);
+            }
+            
+            const clientModal = document.getElementById('clientModal');
+            if (clientModal) {
+                clientModal.addEventListener('click', function(e) {
+                    if (e.target === clientModal) closeClientModal();
+                });
+            }
+            
+            updateDeliveryFee();
+        });
+    </script>
+</body>
+</html>
